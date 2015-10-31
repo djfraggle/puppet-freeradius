@@ -12,7 +12,7 @@ define freeradius::statusclient (
   $fr_service  = $::freeradius::params::fr_service
   $fr_basepath = $::freeradius::params::fr_basepath
   $fr_group    = $::freeradius::params::fr_group
-  $maj_version = $::freeradius::params::maj_version
+  $maj_version = $::freeradius::maj_version
 
   file { "${fr_basepath}/statusclients.d/${name}.conf":
     ensure  => $ensure,

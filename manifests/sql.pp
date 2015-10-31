@@ -35,7 +35,7 @@ define freeradius::sql (
   $fr_group            = $::freeradius::params::fr_group
   $fr_logpath          = $::freeradius::params::fr_logpath
   $fr_moduleconfigpath = $::freeradius::params::fr_moduleconfigpath
-  $maj_version         = $::freeradius::params::maj_version
+  $maj_version         = $::freeradius::maj_version
 
   # Validate our inputs
   # Validate multiple choice options

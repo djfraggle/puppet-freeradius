@@ -11,7 +11,7 @@ define freeradius::attr (
   $fr_group            = $::freeradius::params::fr_group
   $fr_moduleconfigpath = $::freeradius::params::fr_moduleconfigpath
   $fr_modulepath       = $::freeradius::params::fr_modulepath
-  $maj_version         = $::freeradius::params::maj_version
+  $maj_version         = $::freeradius::maj_version
 
   # Decide on location for attribute filters
   $location = $maj_version ? {

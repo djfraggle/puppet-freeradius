@@ -25,7 +25,7 @@ define freeradius::ldap (
   $fr_service          = $::freeradius::params::fr_service
   $fr_modulepath       = $::freeradius::params::fr_modulepath
   $fr_group            = $::freeradius::params::fr_group
-  $maj_version         = $::freeradius::params::maj_version
+  $maj_version         = $::freeradius::maj_version
 
   # Validate our inputs
   # Hostnames
