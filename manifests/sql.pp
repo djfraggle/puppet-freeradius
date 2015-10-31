@@ -35,6 +35,7 @@ define freeradius::sql (
   $fr_group            = $::freeradius::params::fr_group
   $fr_logpath          = $::freeradius::params::fr_logpath
   $fr_moduleconfigpath = $::freeradius::params::fr_moduleconfigpath
+  $maj_version         = $::freeradius::params::maj_version
 
   # Validate our inputs
   # Validate multiple choice options
@@ -100,7 +101,7 @@ define freeradius::sql (
     mode    => '0640',
     owner   => 'root',
     group   => $fr_group,
-    content => template("freeradius/sql.conf.fr${::freeradius_maj_version}.erb"),
+    content => template("freeradius/sql.conf.fr${maj_version}.erb"),
     require => [Package[$fr_package], Group[$fr_group]],
     notify  => Service[$fr_service],
   }

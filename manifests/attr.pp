@@ -11,9 +11,10 @@ define freeradius::attr (
   $fr_group            = $::freeradius::params::fr_group
   $fr_moduleconfigpath = $::freeradius::params::fr_moduleconfigpath
   $fr_modulepath       = $::freeradius::params::fr_modulepath
+  $maj_version         = $::freeradius::params::maj_version
 
   # Decide on location for attribute filters
-  $location = $::freeradius_maj_version ? {
+  $location = $maj_version ? {
     2       => $fr_basepath,
     3       => "$fr_moduleconfigpath/attr_filter",
     default => $fr_moduleconfigpath,
@@ -33,7 +34,7 @@ define freeradius::attr (
   # Reference all attribute snippets in one file
   concat::fragment { "attr-${name}":
     target  => "${fr_modulepath}/attr_filter",
-    content => template("freeradius/attr.fr${::freeradius_maj_version}.erb"),
+    content => template("freeradius/attr.fr${maj_version}.erb"),
     order   => 20,
   }
 }

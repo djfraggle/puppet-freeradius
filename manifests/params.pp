@@ -1,6 +1,9 @@
 # Default parameters for freeradius
 class freeradius::params {
 
+  # FreeRADIUS major version
+  $maj_version = '2'
+
   # Name of FreeRADIUS package
   $fr_package = $::osfamily ? {
     'RedHat' => 'freeradius',

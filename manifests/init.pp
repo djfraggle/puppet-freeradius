@@ -10,6 +10,7 @@ class freeradius (
   $wpa_supplicant  = false,
   $winbind_support = false,
   $syslog          = false,
+  $maj_version     = $::freeradius::params::maj_version
 ) inherits freeradius::params {
 
   if $control_socket == true {
@@ -21,7 +22,7 @@ class freeradius (
     mode    => '0640',
     owner   => 'root',
     group   => $freeradius::fr_group,
-    content => template("freeradius/radiusd.conf.fr${::freeradius_maj_version}.erb"),
+    content => template("freeradius/radiusd.conf.fr${maj_version}.erb"),
     require => [Package[$freeradius::fr_package], Group[$freeradius::fr_group]],
     notify  => Service[$freeradius::fr_service],
   }
@@ -111,7 +112,7 @@ class freeradius (
   # Install default attribute filters
   concat::fragment { "attr-default":
     target  => "${fr_modulepath}/attr_filter",
-    content => template("freeradius/attr_default.fr${::freeradius_maj_version}.erb"),
+    content => template("freeradius/attr_default.fr${maj_version}.erb"),
     order   => 10,
   }
 
