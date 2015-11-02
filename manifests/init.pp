@@ -10,7 +10,7 @@ class freeradius (
   $wpa_supplicant  = false,
   $winbind_support = false,
   $syslog          = false,
-  $maj_version     = '2',
+  $maj_version     = '3',
 ) inherits freeradius::params {
 
   if $control_socket == true {
