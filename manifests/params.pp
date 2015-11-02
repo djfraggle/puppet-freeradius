@@ -40,7 +40,7 @@ class freeradius::params {
   $fr_moduledir = $::maj_version ? {
     /^2\./    => 'modules',
     /^3\./    => 'mods-enabled',
-    default   => 'modules',
+    default   => 'mods-enabled',
   }
 
   # Default module path
@@ -50,7 +50,7 @@ class freeradius::params {
   $fr_modconfigdir = $::maj_version ? {
     /^2\./    => 'conf.d',
     /^3\./    => 'mods-config',
-    default   => 'conf.d',
+    default   => 'mods-config',
   }
 
   # Default module config path
