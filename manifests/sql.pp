@@ -80,7 +80,7 @@ define freeradius::sql (
   }
 
   # Determine default location of query file
-  $queryfile = $::freeradius_version ? {
+  $queryfile = $::maj_version ? {
     /^2\./  => "${fr_basepath}/sql/${database}/dialup.conf",
     /^3\./  => "${fr_basepath}/sql/queries.conf",
     default => "${fr_basepath}/sql/queries.conf",
